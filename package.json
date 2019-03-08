@@ -1,7 +1,7 @@
 {
     "name": "@ao-framework/writer",
     "version": "0.0.1",
-    "description": "{{description}}",
+    "description": "The writer is a library that was created to assist in developing multi-line strings for such things as code generation, documentation and error handling with custom templates.",
     "main": "dist/src/index",
     "types": "dist/src/index.d.ts",
     "scripts": {
@@ -26,5 +26,17 @@
         ],
         "verbose": true,
         "testURL": "http://localhost/"
-    }
+    },
+    "directories": {
+        "test": "test"
+    },
+    "dependencies": {},
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ao-framework/writer.git"
+    },
+    "bugs": {
+        "url": "https://github.com/ao-framework/writer/issues"
+    },
+    "homepage": "https://github.com/ao-framework/writer#readme"
 }
