@@ -4,6 +4,12 @@
 export default class Writer {
 
     /**
+     * Holds the alignment orientation
+     * of the document
+     */
+    public alignment: "left" | "right" = "left";
+
+    /**
      * Holds the line entries
      */
     private lines: string[] = [];
@@ -31,7 +37,43 @@ export default class Writer {
         for (var i = 0; i < this.offset; i++) {
             space += " "
         }
-        return space + text;
+        return this.alignment === "right" ? text + space : space + text;
+    }
+
+    /**
+     * Chainable method to set alignment
+     * on the fly
+     * @param alignment 
+     */
+    public align(alignment: "right" | "left") {
+        this.alignment = alignment;
+        return this;
+    }
+
+    /**
+     * Wrap contains with a specified start-string
+     * and end-string
+     * @param startString 
+     * @param endString 
+     * @param handler 
+     */
+    public wrap(startString: string, endString: string, handler: Function) {
+        this.line(startString)
+        handler();
+        this.line(endString);
+        return this;
+    }
+
+    /**
+     * Wrap contains with a specified start-string
+     * and end-string and indents its contents
+     * @param startString 
+     * @param endString 
+     * @param handler 
+     */
+    public wrapWithIndent(startString: string, endString: string, handler: Function) {
+        this.line(startString, handler)
+        this.line(endString)
     }
 
     /**
@@ -47,12 +89,55 @@ export default class Writer {
             handler();
             this.offset = this.offset - this.factor;
         }
+        return this;
     }
 
     /**
-     * Returns the list of lines compiled
+     * Hijack the offset tree hiearchy and write
+     * at any offset on the current line
+     * @param offset 
+     * @param line 
+     * @param handler 
+     */
+    public at(offset: number, line: string, handler?: Function) {
+        let oldOffset = this.offset;
+        this.offset = offset;
+        this.line(line, handler);
+        this.offset = oldOffset;
+        return this;
+    }
+
+    /**
+     * Set the factor for implied indentation
+     * @param factor 
+     */
+    public indent(factor: number) {
+        this.factor = factor;
+        return this;
+    }
+
+    /**
+     * Add a blank line
+     */
+    public pressEnter() {
+        this.line("");
+        return this;
+    }
+
+    /**
+     * Returns a list of lines compiled thus far.
+     * This only return a copy and will not return
+     * this actual reference
      */
     public getLines() {
+        return <string[]>Array.prototype.slice.apply(this.lines, [])
+    }
+
+    /**
+     * Get the actual reference to the array
+     * of strings held in memory
+     */
+    public getLinesInstance() {
         return this.lines;
     }
 
