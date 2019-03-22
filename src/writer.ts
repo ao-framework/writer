@@ -1,8 +1,4 @@
-/**
- * Definition of the writer
- */
 export default class Writer {
-
     /**
      * Holds the alignment orientation
      * of the document
