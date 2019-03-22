@@ -1,9 +1,9 @@
 <p align="center">
-<img width="150" src="./assets/ao.logo.svg"><br>
+<img width="150" src="https://ao-framework.github.io/website/ao.logo.svg"><br>
 <b>Writer</b>
 </p>
 
-The **writer** is a library that was created to assist in developing multi-line strings for such things as code generation, documentation and error handling with custom templates.
+**Writer** is a library that was created to assist in developing multi-line strings for such things as code generation, documentation and error handling with custom templates.
 
 Installation
 ```bash
