@@ -18,17 +18,17 @@ Usage
 ```ts
 import Writer from "@ao-framework/writer";
 
-let str = new Writer()
-    .align("left")
-    .indent(2)
-    .line("I should be right against edge.")
-    .line("So should I.", () => {
-        writer.line("I should be indented 2 spaces", () => {
-            writer.line("I should be indented 4 spaces")
-        })
-    }).getString()
+let writer = new Writer()
+writer.align("left")
+writer.indent(2)
+writer.line("I should be right against edge.")
+writer.line("So should I.", () => {
+    writer.line("I should be indented 2 spaces", () => {
+        writer.line("I should be indented 4 spaces")
+    })
+})
 
-console.log(str)
+console.log(writer.getString())
 ```
 
 Outputs
