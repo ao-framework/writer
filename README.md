@@ -5,16 +5,16 @@
 
 **Writer** is a library that was created to assist in developing multi-line strings for such things as code generation, documentation and error handling with custom templates.
 
-Installation
+#### Install
 ```bash
 npm install @ao-framework/writer
 ```
 
-Import
+#### Import
 ```ts
 import Writer from "@ao-framework/writer";
 ```
-Usage
+#### Usage
 ```ts
 import Writer from "@ao-framework/writer";
 
@@ -31,7 +31,7 @@ writer.line("So should I.", () => {
 console.log(writer.getString())
 ```
 
-Outputs
+#### Outputs
 ```txt
 I should be right against edge.
 So should I.
