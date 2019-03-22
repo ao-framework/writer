@@ -3,6 +3,8 @@
 <b>Writer</b>
 </p>
 
+<p align="center"><em>Currently in early development. Breaking changes will occur frequently.</em></p>
+
 **Writer** is a library that was created to assist in developing multi-line strings for such things as code generation, documentation and error handling with custom templates.
 
 #### Install
